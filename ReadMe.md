@@ -1,6 +1,6 @@
 # RouteGuard
 
-> Secure Routing & Packet Analysis Framework
+A Secure Routing & Packet Analysis Framework
 
 RouteGuard is a modular networking and network-security simulation framework.
 
