@@ -103,9 +103,8 @@ RouteGuard/
 │   └── Source Files/
 │       └── RouteGuard.cpp
 │
-├── Test Files/
-│
-└── Build Files/
+└── Test Files/
+
 ```
 
 # Architecture Overview
