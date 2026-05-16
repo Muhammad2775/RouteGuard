@@ -1,20 +1,17 @@
-//#include <iostream>
-#include <print>
-
-#include <Constants.hpp>
+#include <iostream>
 #include <SystemInterface.hpp>
-
-using namespace std;
 
 int main()
 {
     SystemInterface systemInterface;
 
     systemInterface.Initialize();
+
     systemInterface.Run();
+
     systemInterface.Shutdown();
 
-    print("RouteGuard has exited successfully.");
-
+    std::cin.get();
+    
     return 0;
 }
