@@ -9,16 +9,33 @@ public:
 
     inline void Info(const std::string& message)
     {
-        std::cout << "[INFO] " << message << '\n';
+        std::cout
+            << "[INFO] "
+            << message
+            << '\n';
     }
 
     inline void Warning(const std::string& message)
     {
-        std::cout << "[WARNING] " << message << '\n';
+        std::cout
+            << "[WARNING] "
+            << message
+            << '\n';
+    }
+
+    inline void Error(const std::string& message)
+    {
+        std::cout
+            << "[ERROR] "
+            << message
+            << '\n';
     }
 
     inline void Alert(const std::string& message)
     {
-        std::cout << "[ALERT] " << message << '\n';
+        std::cout
+            << "[ALERT] "
+            << message
+            << '\n';
     }
 };
