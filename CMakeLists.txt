@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 4.3.2)
 
-set(CMAKE_CXX_COMPILER "clang-cl")
+set(CMAKE_CXX_STANDARD 26)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 project(RouteGuard VERSION 1.0 LANGUAGES CXX)
 
 add_executable(RouteGuard
@@ -19,7 +22,7 @@ target_include_directories(RouteGuard PRIVATE
 )
 
 # Compiler Warnings
-if(MSVC OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
     target_compile_options(RouteGuard PRIVATE 
         $<$<COMPILE_LANGUAGE:CXX>: /W3 /std:c++latest /utf-8 /EHsc -m64 >
     )
