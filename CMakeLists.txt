@@ -21,14 +21,64 @@ target_include_directories(RouteGuard PRIVATE
     "Program Files/Header Files/Utilities"
 )
 
-# Compiler Warnings
-if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-    target_compile_options(RouteGuard PRIVATE 
-        $<$<COMPILE_LANGUAGE:CXX>: /W3 /std:c++latest /utf-8 /EHsc -m64 >
+# Compiler Configuration
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+
+    target_compile_options(RouteGuard PRIVATE
+        # Architecture
+        -m64
+        -march=x86-64-v3
+
+        # Optimization
+        -Ofast
+        -fstrict-aliasing
+
+        # Diagnostics
+        -Wall
+        -Wextra
+        -Wshadow
+        -Wpedantic
+        -Wconversion
+
+        # clang-cl compatibility
+        /std:c++latest
+        -Xclang -std=c++2c
+
+        # Platform
+        /EHsc
+        /utf-8
+
+        # Cleanup Crew
+        -Wno-c++98-compat
+        -Wno-c++98-compat-pedantic
+        -Wno-unsafe-buffer-usage
+        -Wno-padded
+        -Wno-old-style-cast
+        -Wno-missing-prototypes
     )
-else()
-    target_compile_options(RouteGuard PRIVATE -Wall -Wextra -Wpedantic)
+
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+
+    target_compile_options(RouteGuard PRIVATE
+        # Architecture
+        -m64
+        -march=x86-64-v3
+
+        # Optimization
+        -O3
+        -fstrict-aliasing
+
+        # Diagnostics
+        -Wall
+        -Wextra
+        -Wshadow
+        -Wpedantic
+        -Wconversion
+    )
+
 endif()
+
+target_compile_features(RouteGuard PRIVATE cxx_std_26)
 
 set_target_properties(RouteGuard PROPERTIES 
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}"
